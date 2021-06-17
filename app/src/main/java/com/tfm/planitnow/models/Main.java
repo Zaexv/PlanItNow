@@ -17,7 +17,7 @@ public class Main {
 		
 		System.out.println(u.toString());
 
-		Plan p = new Plan("Plan de Playa","Jugar al Voley");
+		Plan p = new Plan(1,"Plan de Playa","Jugar al Voley");
 		p.setOwner(u);
 		p.setLocation("Valencia");
 		p.setInit_hour(5);

@@ -1,6 +1,7 @@
 package com.tfm.planitnow.adapters;
 
 import android.content.Context;
+import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,8 +22,10 @@ public class PlanAdapter extends RecyclerView.Adapter<PlanHolder> {
 
     private List<Plan> allPlans;
     private Context mContext;
+    LayoutInflater layoutInflater;
 
     public PlanAdapter(Context context,List<Plan> allPlans){
+        this.layoutInflater = LayoutInflater.from(context);
         this.allPlans = allPlans;
         this.mContext = context;
     }
@@ -31,10 +34,7 @@ public class PlanAdapter extends RecyclerView.Adapter<PlanHolder> {
     @NotNull
     @Override
     public PlanHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
-        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-
         /* Inflate the Rows */
-
         View view = layoutInflater.inflate(R.layout.list_plans,parent,false);
         return new PlanHolder(view);
 
@@ -43,10 +43,7 @@ public class PlanAdapter extends RecyclerView.Adapter<PlanHolder> {
     @Override
     public void onBindViewHolder(@NonNull @NotNull PlanHolder holder, int position) {
         final Plan plan = allPlans.get(position);
-
-        holder.setPlanTitle(plan.getTitle());
-        holder.setPlanDescription(plan.getDescription());
-        holder.setPlanLocation(plan.getLocation());
+        holder.bindData(plan);
 
     }
 
@@ -54,4 +51,10 @@ public class PlanAdapter extends RecyclerView.Adapter<PlanHolder> {
     public int getItemCount() {
         return allPlans == null?0 : allPlans.size();
     }
+
+    /* Functions */
+    public void setPlans(List<Plan> listPlans){
+        this.allPlans = listPlans;
+    }
+
 }

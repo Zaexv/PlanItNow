@@ -25,6 +25,7 @@ public class Plan {
 		this.id = id;
 		this.title = title;
 		this.description = description;
+		this.location = "Valencia";
 	}
 	
 	public Plan(String title, String description, String location,

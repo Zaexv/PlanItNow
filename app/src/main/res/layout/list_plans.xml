@@ -8,8 +8,11 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:animateLayoutChanges="true"
-    app:cardElevation="14dp"
-    app:cardUseCompatPadding="true">
+    app:cardBackgroundColor="#FFFFFFFF"
+    app:cardCornerRadius="2dp"
+    app:cardElevation="5dp"
+    app:cardUseCompatPadding="true"
+    app:contentPadding="2dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -53,7 +56,7 @@
                     android:layout_marginBottom="2dp"
                     android:text="PlanItNow!"
                     android:textColor="@android:color/black"
-                    android:textSize="24sp"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -61,20 +64,21 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="La mejor app!"
-                    android:textSize="18sp" />
+                    android:textSize="12sp" />
             </LinearLayout>
 
             <TextView
                 android:id="@+id/planLocationTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="6dp"
                 android:text="Valencia"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true" />
+                android:textSize="12sp"
+                android:textStyle="bold" />
         </RelativeLayout>
 
     </LinearLayout>

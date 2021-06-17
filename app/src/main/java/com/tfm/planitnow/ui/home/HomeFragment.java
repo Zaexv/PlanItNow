@@ -11,12 +11,21 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.tfm.planitnow.R;
+import com.tfm.planitnow.adapters.PlanAdapter;
+import com.tfm.planitnow.models.Plan;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class HomeFragment extends Fragment {
 
+
     private HomeViewModel homeViewModel;
+    private List<Plan> planList;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -30,6 +39,26 @@ public class HomeFragment extends Fragment {
                 textView.setText(s);
             }
         });
+
+        test1_init(); //Just for testing purposes
+
+        PlanAdapter planAdapter = new PlanAdapter(this.getContext(),planList);
+        RecyclerView recyclerView = root.findViewById(R.id.listPlanRecyclerView);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
+        recyclerView.setAdapter(planAdapter);
+
         return root;
     }
+
+
+    public void test1_init(){
+        planList = new ArrayList<>();
+        planList.add(new Plan(1, "KafCafe Open Mic", "Micro abierto en el KafCafé"));
+        planList.add(new Plan(2, "Guitarreo en la Playa", "Guitarrita!"));
+        planList.add(new Plan(3, "Siesta en el Piso", "Siesta time!"));
+        planList.add(new Plan(4, "Quedada para montar en long", "Guitarrita!"));
+        planList.add(new Plan(5, "Cervezas en el Bar", "¡Que venga quien quiera!"));
+    }
+
 }
