@@ -6,7 +6,8 @@ import java.util.Set;
 
 public class Plan {
 
-	/* Class Attributes */ 
+	/* Class Attributes */
+	private int id;
 	private String title, description, location; 
 	private Integer init_hour, end_hour; 
 	private Date init_date, end_date; 
@@ -20,7 +21,8 @@ public class Plan {
 
 	/* Constructor */ 
 	
-	public Plan(String title, String description) {
+	public Plan(int id, String title, String description) {
+		this.id = id;
 		this.title = title;
 		this.description = description;
 	}
@@ -47,8 +49,10 @@ public class Plan {
 	}
 
 	
-	/* Getters and Setters */ 
-	
+	/* Getters and Setters */
+
+	public int getId() { return id; }
+
 	public String getTitle() {
 		return title;
 	}

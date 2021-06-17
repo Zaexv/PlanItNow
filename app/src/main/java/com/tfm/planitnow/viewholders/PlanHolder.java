@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.tfm.planitnow.R;
 
 public class PlanHolder extends RecyclerView.ViewHolder {
-    private TextView planName;
+    private TextView planTitle;
     private TextView planDescription;
     private TextView planLocation;
 
@@ -17,15 +17,15 @@ public class PlanHolder extends RecyclerView.ViewHolder {
     public PlanHolder(View planItemView) {
         super(planItemView);
 
-        planName = planItemView.findViewById(R.id.planNameTextView);
+        planTitle = planItemView.findViewById(R.id.planTitleTextView);
         planDescription = planItemView.findViewById(R.id.planDescriptionTextView);
         planLocation = planItemView.findViewById(R.id.planLocationTextView);
     }
 
     /* Functions */
 
-    public void setPlanName(String name){
-        planName.setText(name);
+    public void setPlanTitle(String title){
+        planTitle.setText(title);
     }
 
     public void setPlanDescription(String description){

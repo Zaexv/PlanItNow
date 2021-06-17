@@ -1,11 +1,14 @@
 package com.tfm.planitnow.adapters;
 
 import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.tfm.planitnow.R;
 import com.tfm.planitnow.models.Plan;
 import com.tfm.planitnow.viewholders.PlanHolder;
 
@@ -28,16 +31,27 @@ public class PlanAdapter extends RecyclerView.Adapter<PlanHolder> {
     @NotNull
     @Override
     public PlanHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
-        return null;
+        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
+
+        /* Inflate the Rows */
+
+        View view = layoutInflater.inflate(R.layout.list_plans,parent,false);
+        return new PlanHolder(view);
+
     }
 
     @Override
     public void onBindViewHolder(@NonNull @NotNull PlanHolder holder, int position) {
+        final Plan plan = allPlans.get(position);
+
+        holder.setPlanTitle(plan.getTitle());
+        holder.setPlanDescription(plan.getDescription());
+        holder.setPlanLocation(plan.getLocation());
 
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return allPlans == null?0 : allPlans.size();
     }
 }
