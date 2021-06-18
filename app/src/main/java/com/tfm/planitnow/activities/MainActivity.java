@@ -1,8 +1,9 @@
-package com.tfm.planitnow;
+package com.tfm.planitnow.activities;
 
 import android.os.Bundle;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.tfm.planitnow.R;
 import com.tfm.planitnow.models.User;
 
 import androidx.appcompat.app.AppCompatActivity;
