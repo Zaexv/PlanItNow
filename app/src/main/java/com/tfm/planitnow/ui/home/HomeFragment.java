@@ -32,6 +32,8 @@ public class HomeFragment extends Fragment {
         homeViewModel =
                 new ViewModelProvider(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
+
+        /*
         final TextView textView = root.findViewById(R.id.text_home);
         homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
@@ -39,6 +41,7 @@ public class HomeFragment extends Fragment {
                 textView.setText(s);
             }
         });
+         */
 
         test1_init(); //Just for testing purposes
 
@@ -58,6 +61,10 @@ public class HomeFragment extends Fragment {
         planList.add(new Plan(2, "Guitarreo en la Playa", "Guitarrita!"));
         planList.add(new Plan(3, "Siesta en el Piso", "Siesta time!"));
         planList.add(new Plan(4, "Quedada para montar en long", "Guitarrita!"));
+        planList.add(new Plan(5, "Cervezas en el Bar", "¡Que venga quien quiera!"));
+        planList.add(new Plan(5, "Cervezas en el Bar", "¡Que venga quien quiera!"));
+        planList.add(new Plan(5, "Cervezas en el Bar", "¡Que venga quien quiera!"));
+        planList.add(new Plan(5, "Cervezas en el Bar", "¡Que venga quien quiera!"));
         planList.add(new Plan(5, "Cervezas en el Bar", "¡Que venga quien quiera!"));
     }
 
