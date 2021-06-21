@@ -27,7 +27,14 @@ public class Plan {
 		this.description = description;
 		this.location = "Valencia";
 	}
-	
+
+	public Plan(int id, String title, String description,String location) {
+		this.id = id;
+		this.title = title;
+		this.description = description;
+		this.location = location;
+	}
+
 	public Plan(String title, String description, String location,
 			Date init_date, Date end_date,
 			Integer init_hour, Integer end_hour,

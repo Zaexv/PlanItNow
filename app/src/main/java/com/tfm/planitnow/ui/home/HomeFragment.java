@@ -57,6 +57,9 @@ public class HomeFragment extends Fragment {
 
     public void test1_init(){
         planList = new ArrayList<>();
+        planList.add(new Plan(1, "Hacer música con Clau en el Piso", "De 18:00 a 19:00","El pisito"));
+        planList.add(new Plan(7, "Ir a casa de Ale", "A las 19:00","Torres de Serrano"));
+        planList.add(new Plan(8, "Despedida del pisito", "Martes a las 20:00 me voy del piso","El pisito"));
         planList.add(new Plan(1, "KafCafe Open Mic", "Micro abierto en el KafCafé"));
         planList.add(new Plan(2, "Guitarreo en la Playa", "Guitarrita!"));
         planList.add(new Plan(3, "Siesta en el Piso", "Siesta time!"));
