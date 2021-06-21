@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -30,6 +31,9 @@ public class NotificationsFragment extends Fragment {
                 textView.setText(s);
             }
         });
+
+        final ImageView imageView = (ImageView)root.findViewById(R.id.notifications_imageView);
+        imageView.setImageResource(R.drawable.ic_notifications_black_24dp);
         return root;
     }
 }
