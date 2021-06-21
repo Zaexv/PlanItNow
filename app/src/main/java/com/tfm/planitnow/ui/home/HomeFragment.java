@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,6 +15,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.tfm.planitnow.R;
 import com.tfm.planitnow.adapters.PlanAdapter;
 import com.tfm.planitnow.models.Plan;
@@ -44,6 +46,16 @@ public class HomeFragment extends Fragment {
          */
 
         test1_init(); //Just for testing purposes
+
+        /* Init button */ //TODO Refactor
+        FloatingActionButton fab = root.findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(v.getContext(), "¡Pronto podrás crear planes!", Toast.LENGTH_LONG).show();
+            }
+        });
+
 
         PlanAdapter planAdapter = new PlanAdapter(this.getContext(),planList);
         RecyclerView recyclerView = root.findViewById(R.id.listPlanRecyclerView);

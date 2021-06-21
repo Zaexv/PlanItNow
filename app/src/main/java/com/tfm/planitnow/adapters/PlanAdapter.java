@@ -36,6 +36,7 @@ public class PlanAdapter extends RecyclerView.Adapter<PlanHolder> {
     public PlanHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
         /* Inflate the Rows */
         View view = layoutInflater.inflate(R.layout.list_plans,parent,false);
+        
         return new PlanHolder(view);
 
     }
