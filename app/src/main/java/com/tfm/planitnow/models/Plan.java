@@ -1,10 +1,13 @@
 package com.tfm.planitnow.models;
 
+import org.jetbrains.annotations.NotNull;
+
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
-public class Plan {
+public class Plan implements Serializable {
 
 	/* Class Attributes */
 	private int id;
@@ -28,7 +31,7 @@ public class Plan {
 		this.location = "Valencia";
 	}
 
-	public Plan(int id, String title, String description,String location) {
+	public Plan(int id, String title, String description, String location) {
 		this.id = id;
 		this.title = title;
 		this.description = description;
@@ -164,6 +167,7 @@ public class Plan {
 	/* Functions */ 
 	
 
+	@NotNull
 	@Override
 	public String toString() {
 		return "Plan [title=" + title + ", description=" + description + ", location=" + location + ", init_hour="

@@ -36,7 +36,7 @@ public class DashboardFragment extends Fragment {
         });
 
         final ImageView imageView = (ImageView)root.findViewById(R.id.dash_imageView);
-        imageView.setImageResource(R.drawable.ic_travel_explore_black_24dp);
+        imageView.setImageResource(R.drawable.dashboard);
         return root;
     }
 }

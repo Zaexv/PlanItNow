@@ -34,5 +34,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.587"
-        tools:src="@mipmap/ic_launcher" />
+        tools:src="@drawable/dashboard" />
 </androidx.constraintlayout.widget.ConstraintLayout>

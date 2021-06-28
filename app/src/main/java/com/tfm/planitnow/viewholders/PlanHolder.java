@@ -37,6 +37,7 @@ public class PlanHolder extends RecyclerView.ViewHolder {
                 int duration = Toast.LENGTH_LONG;
                 Toast.makeText(itemView.getContext(), plan.getTitle(), duration ).show();
                 Intent i = new Intent(planItemView.getContext(), ViewPlanActivity.class);
+                i.putExtra("plan",plan);
                 planItemView.getContext().startActivity(i);
             }
         });

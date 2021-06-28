@@ -1,36 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".activities.ViewPlanActivity">
+    android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="314dp"
-        android:layout_height="200dp"
-        android:layout_marginStart="150dp"
-        android:layout_marginTop="318dp"
-        android:layout_marginEnd="150dp"
-        android:layout_marginBottom="260dp"
-        android:src="@drawable/ic_travel_explore_black_24dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.257" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="196dp"
-        android:layout_marginBottom="58dp"
-        android:text="Informacion de Plan"
-        app:layout_constraintBottom_toTopOf="@+id/imageView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/view_plan_image"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:scaleType="centerInside"
+            android:adjustViewBounds="true"
+            app:srcCompat="@drawable/dashboard" />
+
+        <TextView
+            android:id="@+id/view_plan_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Titulo"
+            android:textAlignment="viewStart" />
+
+        <TextView
+            android:id="@+id/view_plan_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Descripcion"
+            android:textAlignment="viewStart" />
+
+        <TextView
+            android:id="@+id/view_plan_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Viernes 30 de Junio" />
+
+        <TextView
+            android:id="@+id/view_plan_schedule"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="De 4 a 8"
+            android:textAlignment="viewStart" />
+
+        <TextView
+            android:id="@+id/view_plan_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Casa de Edu"
+            android:textAlignment="viewStart" />
+    </LinearLayout>
+</ScrollView>
