@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -16,7 +15,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.tfm.planitnow.R;
 import com.tfm.planitnow.activities.CreatePlanActivity;
-import com.tfm.planitnow.activities.ViewPlanActivity;
 import com.tfm.planitnow.adapters.PlanAdapter;
 import com.tfm.planitnow.models.Plan;
 
@@ -48,7 +46,7 @@ public class HomeFragment extends Fragment {
         test1_init(); //Just for testing purposes
 
         /* Init button */ //TODO Refactor
-        FloatingActionButton fab = root.findViewById(R.id.createplanbutton);
+        FloatingActionButton fab = root.findViewById(R.id.goto_createplanbutton);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,7 +60,6 @@ public class HomeFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
         recyclerView.setAdapter(planAdapter);
-
         return root;
     }
 
