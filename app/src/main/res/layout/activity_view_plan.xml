@@ -2,6 +2,7 @@
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -22,34 +23,71 @@
             android:id="@+id/view_plan_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingStart="15dp"
             android:text="Titulo"
-            android:textAlignment="viewStart" />
+            android:textAlignment="viewStart"
+            android:textColor="@color/black"
+            android:textSize="24sp" />
 
         <TextView
             android:id="@+id/view_plan_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingStart="20dp"
             android:text="Descripcion"
             android:textAlignment="viewStart" />
 
-        <TextView
-            android:id="@+id/view_plan_date"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Viernes 30 de Junio" />
+        <androidx.cardview.widget.CardView
 
-        <TextView
-            android:id="@+id/view_plan_schedule"
+            android:id="@+id/cardviewplan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="De 4 a 8"
-            android:textAlignment="viewStart" />
+            android:animateLayoutChanges="true"
+            android:clipToPadding="true"
+            android:paddingEnd="10dp"
+            app:cardBackgroundColor="#FFFFFFFF"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="5dp"
+            app:cardPreventCornerOverlap="true"
+            app:cardUseCompatPadding="true"
+            app:contentPadding="10dp">
 
-        <TextView
-            android:id="@+id/view_plan_location"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/view_plan_schedule"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="De 4 a 8"
+                    android:textAlignment="center"
+                    android:textColor="@color/purple_500"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/view_plan_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Viernes 30 de Junio"
+                    android:textAlignment="center"
+                    android:textColor="@color/purple_500"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/view_plan_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Casa de Edu"
+                    android:textAlignment="center" />
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Casa de Edu"
-            android:textAlignment="viewStart" />
+            android:layout_height="match_parent"/>
+
     </LinearLayout>
 </ScrollView>

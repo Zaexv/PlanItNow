@@ -33,21 +33,25 @@ public class ViewPlanActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_view_plan);
 
+        initViews();
+        setPlanToViews(plan);
 
+    }
 
-        planTitle = findViewById(R.id.view_plan_title);
-        planDescription = findViewById(R.id.view_plan_description);
-        planDate = findViewById(R.id.view_plan_date);
-        planSchedule = findViewById(R.id.view_plan_schedule);
-        planLocation = findViewById(R.id.view_plan_location);
-
-
+    private void setPlanToViews(Plan plan) {
         planTitle.setText("" + plan.getTitle());
         planDescription.setText("" + plan.getDescription());
         planDate.setText("" + plan.getInit_date());
         planSchedule.setText("" + plan.getInit_hour() + " a " + plan.getEnd_hour());
         planLocation.setText("" + plan.getLocation());
+    }
 
+    private void initViews() {
+        planTitle = findViewById(R.id.view_plan_title);
+        planDescription = findViewById(R.id.view_plan_description);
+        planDate = findViewById(R.id.view_plan_date);
+        planSchedule = findViewById(R.id.view_plan_schedule);
+        planLocation = findViewById(R.id.view_plan_location);
     }
 
     @Override

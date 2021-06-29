@@ -19,16 +19,16 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
+        android:id="@+id/createplanbutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:layout_margin="25dp"
         android:contentDescription="@string/app_name"
-        android:src="@drawable/ic_travel_explore_black_24dp"
-        app:backgroundTint="?android:attr/colorPressedHighlight"
+        android:src="@android:drawable/ic_menu_add"
+        app:backgroundTint="?attr/colorSecondary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/listPlanRecyclerView"
-        app:rippleColor="@android:color/holo_orange_light" />
+        app:rippleColor="@android:color/holo_blue_light" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

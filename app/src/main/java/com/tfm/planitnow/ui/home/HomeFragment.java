@@ -1,22 +1,22 @@
 package com.tfm.planitnow.ui.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.tfm.planitnow.R;
+import com.tfm.planitnow.activities.CreatePlanActivity;
+import com.tfm.planitnow.activities.ViewPlanActivity;
 import com.tfm.planitnow.adapters.PlanAdapter;
 import com.tfm.planitnow.models.Plan;
 
@@ -48,14 +48,14 @@ public class HomeFragment extends Fragment {
         test1_init(); //Just for testing purposes
 
         /* Init button */ //TODO Refactor
-        FloatingActionButton fab = root.findViewById(R.id.fab);
+        FloatingActionButton fab = root.findViewById(R.id.createplanbutton);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(v.getContext(), "¡Pronto podrás crear planes!", Toast.LENGTH_LONG).show();
+                Intent i = new Intent(root.getContext(), CreatePlanActivity.class);
+                root.getContext().startActivity(i);
             }
         });
-
 
         PlanAdapter planAdapter = new PlanAdapter(this.getContext(),planList);
         RecyclerView recyclerView = root.findViewById(R.id.listPlanRecyclerView);
