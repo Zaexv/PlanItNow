@@ -44,6 +44,12 @@
                 android:hint="Localización"
                 android:text="" />
 
+            <Switch
+                android:id="@+id/view_cp_public"
+                android:layout_width="129dp"
+                android:layout_height="wrap_content"
+                android:text="Público" />
+
             <Button
                 android:id="@+id/view_cp_button"
                 android:layout_width="match_parent"
