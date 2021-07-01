@@ -63,7 +63,7 @@
                     android:layout_height="wrap_content"
                     android:text="De 4 a 8"
                     android:textAlignment="center"
-                    android:textColor="@color/purple_500"
+                    android:textColor="@color/black"
                     android:textSize="18sp" />
 
                 <TextView

@@ -58,6 +58,6 @@ public class PlanAdapter extends RecyclerView.Adapter<PlanHolder> {
         this.allPlans = listPlans;
     }
     public List<Plan> getPlans() { return this.allPlans; }
-    public void addPlan(Plan p) { allPlans.add(p); }
+    public void addPlan(Plan p) { allPlans.add(0, p); }
 
 }

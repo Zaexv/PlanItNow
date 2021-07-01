@@ -24,13 +24,14 @@ import java.util.List;
 public class HomeFragment extends Fragment {
 
 
-    private HomeViewModel homeViewModel;
-    private List<Plan> planList;
+    private static HomeViewModel homeViewModel;
+    private static PlanAdapter planAdapter;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         homeViewModel =
                 new ViewModelProvider(this).get(HomeViewModel.class);
+
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
         /*
@@ -43,8 +44,6 @@ public class HomeFragment extends Fragment {
         });
          */
 
-        test1_init(); //Just for testing purposes
-
         /* Init button */ //TODO Refactor
         FloatingActionButton fab = root.findViewById(R.id.goto_createplanbutton);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -55,7 +54,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        PlanAdapter planAdapter = new PlanAdapter(this.getContext(),planList);
+        planAdapter = new PlanAdapter(this.getContext(),homeViewModel.getPlanList());
         RecyclerView recyclerView = root.findViewById(R.id.listPlanRecyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
@@ -63,21 +62,11 @@ public class HomeFragment extends Fragment {
         return root;
     }
 
-
-    public void test1_init(){
-        planList = new ArrayList<>();
-        planList.add(new Plan(1, "Hacer música con Clau en el Piso", "De 18:00 a 19:00","El pisito"));
-        planList.add(new Plan(7, "Ir a casa de Ale", "A las 19:00","Torres de Serrano"));
-        planList.add(new Plan(8, "Despedida del pisito", "Martes a las 20:00 me voy del piso","El pisito"));
-        planList.add(new Plan(1, "KafCafe Open Mic", "Micro abierto en el KafCafé"));
-        planList.add(new Plan(2, "Guitarreo en la Playa", "Guitarrita!"));
-        planList.add(new Plan(3, "Siesta en el Piso", "Siesta time!"));
-        planList.add(new Plan(4, "Quedada para montar en long", "Guitarrita!"));
-        planList.add(new Plan(5, "Cervezas en el Bar", "¡Que venga quien quiera!"));
-        planList.add(new Plan(5, "Cervezas en el Bar", "¡Que venga quien quiera!"));
-        planList.add(new Plan(5, "Cervezas en el Bar", "¡Que venga quien quiera!"));
-        planList.add(new Plan(5, "Cervezas en el Bar", "¡Que venga quien quiera!"));
-        planList.add(new Plan(5, "Cervezas en el Bar", "¡Que venga quien quiera!"));
+    public static void addPlan(Plan p){
+        homeViewModel.addPlan(p);
+        planAdapter.notifyDataSetChanged();
     }
+
+
 
 }
