@@ -45,6 +45,8 @@
                 android:layout_marginStart="4dp"
                 android:layout_marginLeft="4dp"
                 android:layout_marginTop="2dp"
+                android:layout_marginEnd="10dp"
+                android:layout_toStartOf="@+id/planLocationTextView"
                 android:layout_toEndOf="@+id/planImageView"
                 android:layout_toRightOf="@+id/planImageView"
                 android:orientation="vertical">
@@ -69,7 +71,7 @@
 
             <TextView
                 android:id="@+id/planLocationTextView"
-                android:layout_width="wrap_content"
+                android:layout_width="60dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentEnd="true"

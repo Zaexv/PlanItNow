@@ -41,7 +41,7 @@ public class ViewPlanActivity extends AppCompatActivity {
     private void setPlanToViews(Plan plan) {
         planTitle.setText("" + plan.getTitle());
         planDescription.setText("" + plan.getDescription());
-        planDate.setText("Nos encontrarás el día: " + plan.getInit_date().getDay() + "/" +  plan.getInit_date().getMonth() + "/" + plan.getInit_date().getYear()); //Todo delete and refactor to Calendar
+        planDate.setText("Nos encontrarás el día: " + plan.getInit_date()); //Todo delete and refactor to Calendar
         planSchedule.setText("Horario de " + plan.getInit_hour() + " a " + plan.getEnd_hour());
         planLocation.setText("" + plan.getLocation());
     }
