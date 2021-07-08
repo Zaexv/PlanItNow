@@ -67,6 +67,11 @@ public class HomeFragment extends Fragment {
         planAdapter.notifyDataSetChanged();
     }
 
+    public static void deletePlan(Plan p){
+        homeViewModel.deletePlan(p);
+        planAdapter.notifyDataSetChanged();
+    }
+
 
 
 }

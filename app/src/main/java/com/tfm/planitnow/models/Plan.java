@@ -173,7 +173,6 @@ public class Plan implements Serializable {
 		return "Plan [title=" + title + ", description=" + description + ", location=" + location + ", init_hour="
 				+ init_hour + ", end_hour=" + end_hour + ", init_date=" + init_date + ", end_date=" + end_date + "]";
 	}
-	
-	
+
 	
 }

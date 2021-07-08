@@ -11,6 +11,14 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <Button
+            android:id="@+id/view_plan_button_delete"
+            android:background="@android:color/holo_red_dark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="deleteThisPlan"
+            android:text="Borrar Plan" />
+
         <ImageView
             android:id="@+id/view_plan_image"
             android:layout_width="match_parent"

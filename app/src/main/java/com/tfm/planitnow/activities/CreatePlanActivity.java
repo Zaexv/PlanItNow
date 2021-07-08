@@ -21,6 +21,7 @@ import com.tfm.planitnow.ui.home.HomeFragment;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
+import java.util.Random;
 
 public class CreatePlanActivity extends AppCompatActivity {
 
@@ -43,22 +44,20 @@ public class CreatePlanActivity extends AppCompatActivity {
         planEndHour = findViewById(R.id.view_cp_end_hour);
         createPlanButton = findViewById(R.id.view_cp_button);
         planCalendar = findViewById(R.id.calendarView);
-
-        //TODO Definir listener mejor :')
-        createPlanButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Plan p = new Plan(1, planTitle.getText().toString(), planDescription.getText().toString(), planLocation.getText().toString());
-                p.setInit_date(new Date(planCalendar.getDate()));
-                p.setInit_hour(Integer.parseInt(planInitHour.getText().toString()));
-                p.setEnd_hour(Integer.parseInt(planEndHour.getText().toString()));
-                Toast.makeText(view.getContext(), p.toString() , Toast.LENGTH_LONG).show();
-
-                HomeFragment.addPlan(p);
-                finish();
-            }
-        });
     }
+
+    public void createPlan(View view){
+        Random rn = new Random(); // TODO eliminar cuando tenga bien puesto los ints
+        Plan p = new Plan(rn.nextInt(), planTitle.getText().toString(), planDescription.getText().toString(), planLocation.getText().toString());
+        p.setInit_date(new Date(planCalendar.getDate()));
+        p.setInit_hour(Integer.parseInt(planInitHour.getText().toString()));
+        p.setEnd_hour(Integer.parseInt(planEndHour.getText().toString()));
+        Toast.makeText(view.getContext(), p.toString() , Toast.LENGTH_LONG).show();
+
+        HomeFragment.addPlan(p);
+        finish();
+    }
+
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item){
