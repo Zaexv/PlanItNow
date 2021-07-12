@@ -18,7 +18,9 @@ import com.tfm.planitnow.adapters.PlanAdapter;
 import com.tfm.planitnow.models.Plan;
 import com.tfm.planitnow.ui.home.HomeFragment;
 
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Objects;
 import java.util.Random;
@@ -27,6 +29,7 @@ public class CreatePlanActivity extends AppCompatActivity {
 
     private TextView planTitle, planDescription, planLocation,planInitHour, planEndHour;
     private CalendarView planCalendar;
+    private Calendar selectedInitCalendar;
 
     private Button createPlanButton;
 
@@ -44,12 +47,19 @@ public class CreatePlanActivity extends AppCompatActivity {
         planEndHour = findViewById(R.id.view_cp_end_hour);
         createPlanButton = findViewById(R.id.view_cp_button);
         planCalendar = findViewById(R.id.calendarView);
+        planCalendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener(){ //TODO -> Extraer como listener
+            @Override
+            public void onSelectedDayChange(@NonNull CalendarView calendarView, int year, int month, int dayOfMonth) {
+                selectedInitCalendar = new GregorianCalendar( year, month, dayOfMonth);
+            }
+        });
+
     }
 
     public void createPlan(View view){
         Random rn = new Random(); // TODO eliminar cuando tenga bien puesto los ints
         Plan p = new Plan(rn.nextInt(), planTitle.getText().toString(), planDescription.getText().toString(), planLocation.getText().toString());
-        p.setInit_date(new Date(planCalendar.getDate()));
+        p.setInit_date(selectedInitCalendar.getTime());
         p.setInit_hour(Integer.parseInt(planInitHour.getText().toString()));
         p.setEnd_hour(Integer.parseInt(planEndHour.getText().toString()));
         Toast.makeText(view.getContext(), p.toString() , Toast.LENGTH_LONG).show();
