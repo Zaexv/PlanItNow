@@ -2,6 +2,7 @@ package com.tfm.planitnow.models;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import org.jetbrains.annotations.NotNull;
@@ -33,18 +34,19 @@ public class Plan implements Serializable {
 	@ColumnInfo(name = "end_hour")
 	private Integer end_hour;
 
-	//@ColumnInfo(name="init_date")
+	@Ignore
 	private Date init_date;
 
-	//@ColumnInfo(name = "end_date")
+	@Ignore
 	private Date end_date;
 
-	//@ColumnInfo(name = "plan_types")
+	@Ignore
 	private Set<PlanType> plan_types;
 	
 	/* Relations */
-	
+	@Ignore
 	private User owner;
+	@Ignore
 	private Set<Participation> joined_users; 
 
 
@@ -57,6 +59,7 @@ public class Plan implements Serializable {
 		this.location = "Valencia";
 	}
 
+	@Ignore
 	public Plan(int id, String title, String description, String location) {
 		this.id = id;
 		this.title = title;
@@ -64,6 +67,7 @@ public class Plan implements Serializable {
 		this.location = location;
 	}
 
+	@Ignore
 	public Plan(String title, String description, String location,
 			Date init_date, Date end_date,
 			Integer init_hour, Integer end_hour,
