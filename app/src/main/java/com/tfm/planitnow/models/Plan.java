@@ -1,5 +1,9 @@
 package com.tfm.planitnow.models;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import org.jetbrains.annotations.NotNull;
 
 import java.io.Serializable;
@@ -7,14 +11,36 @@ import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
+@Entity(tableName = "plans")
 public class Plan implements Serializable {
 
 	/* Class Attributes */
+	@PrimaryKey
 	private int id;
-	private String title, description, location; 
-	private Integer init_hour, end_hour; 
-	private Date init_date, end_date; 
-	private Set<PlanType> plan_types; 
+
+	@ColumnInfo(name = "title")
+	private String title;
+
+	@ColumnInfo(name = "description")
+	private String description;
+
+	@ColumnInfo(name = "location")
+	private String location;
+
+	@ColumnInfo(name = "init_hour")
+	private Integer init_hour;
+
+	@ColumnInfo(name = "end_hour")
+	private Integer end_hour;
+
+	//@ColumnInfo(name="init_date")
+	private Date init_date;
+
+	//@ColumnInfo(name = "end_date")
+	private Date end_date;
+
+	//@ColumnInfo(name = "plan_types")
+	private Set<PlanType> plan_types;
 	
 	/* Relations */
 	
@@ -122,7 +148,6 @@ public class Plan implements Serializable {
 	public void setInit_date(Date init_date) {
 		this.init_date = init_date;
 	}
-
 
 	public Date getEnd_date() {
 		return end_date;
