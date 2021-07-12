@@ -29,7 +29,6 @@ public class HomeViewModel extends ViewModel {
 
     public void deletePlan(Plan p) { planList.removeIf(pl -> (pl.getId() == p.getId())); }
 
-
     public void test1_init(){
         addPlan(new Plan(1, "Hacer música con Clau en el Piso", "De 18:00 a 19:00","El pisito"));
         addPlan(new Plan(2, "Ir a casa de Ale", "A las 19:00","Torres de Serrano"));
