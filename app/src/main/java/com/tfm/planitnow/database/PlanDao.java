@@ -15,7 +15,7 @@ public interface PlanDao {
     List<Plan> getAll();
 
     @Query("SELECT * FROM plans WHERE id IN (:planIds)")
-    List<Plan> loadAlByIds(int[] planIds);
+    List<Plan> loadAllByIds(int[] planIds);
 
     @Query("SELECT * FROM plans where title == (:title)")
     Plan findByTitle(String title);
