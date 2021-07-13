@@ -1,5 +1,6 @@
 package com.tfm.planitnow.database;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -8,6 +9,9 @@ import androidx.room.Query;
 import com.tfm.planitnow.models.Plan;
 
 import java.util.List;
+
+import io.reactivex.Completable;
+import io.reactivex.Single;
 
 @Dao
 public interface PlanDao {

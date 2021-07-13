@@ -34,10 +34,10 @@ public class Plan implements Serializable {
 	@ColumnInfo(name = "end_hour")
 	private Integer end_hour;
 
-	@Ignore
+	@ColumnInfo(name = "init_date")
 	private Date init_date;
 
-	@Ignore
+	@ColumnInfo(name = "end_date")
 	private Date end_date;
 
 	@Ignore

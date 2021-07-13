@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.tfm.planitnow.R;
 import com.tfm.planitnow.adapters.PlanAdapter;
+import com.tfm.planitnow.database.PlanItNowDatabase;
 import com.tfm.planitnow.models.Plan;
 import com.tfm.planitnow.ui.home.HomeFragment;
 
@@ -47,10 +48,11 @@ public class CreatePlanActivity extends AppCompatActivity {
         planEndHour = findViewById(R.id.view_cp_end_hour);
         createPlanButton = findViewById(R.id.view_cp_button);
         planCalendar = findViewById(R.id.calendarView);
+        selectedInitCalendar = Calendar.getInstance();
         planCalendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener(){ //TODO -> Extraer como listener
             @Override
             public void onSelectedDayChange(@NonNull CalendarView calendarView, int year, int month, int dayOfMonth) {
-                selectedInitCalendar = new GregorianCalendar( year, month, dayOfMonth);
+                selectedInitCalendar = new GregorianCalendar(year, month, dayOfMonth);
             }
         });
 
@@ -63,7 +65,7 @@ public class CreatePlanActivity extends AppCompatActivity {
         p.setInit_hour(Integer.parseInt(planInitHour.getText().toString()));
         p.setEnd_hour(Integer.parseInt(planEndHour.getText().toString()));
         Toast.makeText(view.getContext(), p.toString() , Toast.LENGTH_LONG).show();
-
+        PlanItNowDatabase.getInstance(getApplicationContext()).planDao().insertAll(p);
         HomeFragment.addPlan(p);
         finish();
     }

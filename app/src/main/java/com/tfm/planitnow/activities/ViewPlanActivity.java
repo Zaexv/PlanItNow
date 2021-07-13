@@ -74,7 +74,7 @@ public class ViewPlanActivity extends AppCompatActivity {
     }
 
     public void deleteThisPlan(View view){
-        HomeFragment.deletePlan(plan);
+        HomeFragment.deletePlan(plan, getApplicationContext());
         this.finish();
     }
 
