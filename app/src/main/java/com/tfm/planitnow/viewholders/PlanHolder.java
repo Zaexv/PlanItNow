@@ -19,11 +19,15 @@ import com.tfm.planitnow.models.Plan;
 
 import java.io.IOException;
 import java.net.URI;
+import java.util.Calendar;
+import java.util.Date;
 
 public class PlanHolder extends RecyclerView.ViewHolder {
     private TextView planTitle;
     private TextView planDescription;
     private TextView planLocation;
+    private TextView planDate;
+    private TextView planHours;
     private ImageView planImage;
 
     private Plan plan;
@@ -51,6 +55,8 @@ public class PlanHolder extends RecyclerView.ViewHolder {
         planTitle = planItemView.findViewById(R.id.planTitleTextView);
         planDescription = planItemView.findViewById(R.id.planDescriptionTextView);
         planLocation = planItemView.findViewById(R.id.planLocationTextView);
+        planDate = planItemView.findViewById(R.id.planDateTextView);
+        planHours = planItemView.findViewById(R.id.planHourTextView);
         planImage = planItemView.findViewById(R.id.planImageView);
     }
 
@@ -68,6 +74,16 @@ public class PlanHolder extends RecyclerView.ViewHolder {
         planLocation.setText(location);
     }
 
+    public void setPlanDate(Date date) {
+        Calendar c = Calendar.getInstance();
+        c.setTime(date);
+        planDate.setText(c.get(Calendar.DAY_OF_MONTH) + "/" + c.get(Calendar.MONTH));
+    }
+
+    public void setPlanHours(int initHour, int endHour){
+        planHours.setText("De " + initHour + " a " + endHour);
+    }
+
     public void setImageUri(String stringUri) {
         Uri uri = Uri.parse(stringUri);
         if(planItemView.getContext().getContentResolver().getType(uri) != null);
@@ -80,6 +96,8 @@ public class PlanHolder extends RecyclerView.ViewHolder {
         this.setPlanTitle(plan.getTitle());
         this.setPlanDescription(plan.getDescription());
         this.setPlanLocation(plan.getLocation());
+        this.setPlanDate(plan.getInit_date());
+        this.setPlanHours(plan.getInit_hour(),plan.getEnd_hour());
         if(plan.getMain_image_uri() != null) this.setImageUri(plan.getMain_image_uri());
     }
 
