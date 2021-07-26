@@ -22,7 +22,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPersonName"
+                android:inputType="textMultiLine"
                 android:hint="Título"
                 android:text="" />
 
@@ -31,7 +31,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPersonName"
+                android:inputType="textMultiLine"
                 android:hint="Descripción"
                 android:text="" />
 
@@ -82,6 +82,19 @@
                 android:ems="10"
                 android:hint="15"
                 android:inputType="time" />
+
+            <TextView
+                android:id="@+id/to_delete4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pulsa Abajo para añadir imagen" />
+
+            <ImageButton
+                android:id="@+id/view_cp_add_image"
+                android:layout_width="45dp"
+                android:layout_height="wrap_content"
+                android:onClick="openGalleryForResult"
+                app:srcCompat="@android:drawable/ic_input_add" />
 
             <Switch
                 android:id="@+id/view_cp_public"

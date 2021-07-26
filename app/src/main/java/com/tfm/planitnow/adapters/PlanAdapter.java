@@ -45,7 +45,6 @@ public class PlanAdapter extends RecyclerView.Adapter<PlanHolder> {
     public void onBindViewHolder(@NonNull @NotNull PlanHolder holder, int position) {
         final Plan plan = allPlans.get(position);
         holder.bindData(plan);
-
     }
 
     @Override

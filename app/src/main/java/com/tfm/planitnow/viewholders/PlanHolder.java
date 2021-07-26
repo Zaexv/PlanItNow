@@ -1,7 +1,10 @@
 package com.tfm.planitnow.viewholders;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.media.Image;
+import android.net.Uri;
+import android.os.ParcelFileDescriptor;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -13,6 +16,9 @@ import com.tfm.planitnow.R;
 import com.tfm.planitnow.activities.MainActivity;
 import com.tfm.planitnow.activities.ViewPlanActivity;
 import com.tfm.planitnow.models.Plan;
+
+import java.io.IOException;
+import java.net.URI;
 
 public class PlanHolder extends RecyclerView.ViewHolder {
     private TextView planTitle;
@@ -45,6 +51,7 @@ public class PlanHolder extends RecyclerView.ViewHolder {
         planTitle = planItemView.findViewById(R.id.planTitleTextView);
         planDescription = planItemView.findViewById(R.id.planDescriptionTextView);
         planLocation = planItemView.findViewById(R.id.planLocationTextView);
+        planImage = planItemView.findViewById(R.id.planImageView);
     }
 
     /* Functions */
@@ -61,11 +68,19 @@ public class PlanHolder extends RecyclerView.ViewHolder {
         planLocation.setText(location);
     }
 
+    public void setImageUri(String stringUri) {
+        Uri uri = Uri.parse(stringUri);
+        if(planItemView.getContext().getContentResolver().getType(uri) != null);
+         //   planImage.setImageURI(uri);
+            }
+
+
     public void bindData(Plan plan){
         this.plan = plan;
         this.setPlanTitle(plan.getTitle());
         this.setPlanDescription(plan.getDescription());
         this.setPlanLocation(plan.getLocation());
+        if(plan.getMain_image_uri() != null) this.setImageUri(plan.getMain_image_uri());
     }
 
 

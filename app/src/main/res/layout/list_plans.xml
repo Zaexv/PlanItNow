@@ -36,7 +36,6 @@
                 android:layout_gravity="center"
                 android:paddingLeft="14dp"
                 android:paddingRight="14dp"
-                android:visibility="invisible"
                 app:srcCompat="@drawable/ic_travel_explore_black_24dp" />
 
             <LinearLayout
