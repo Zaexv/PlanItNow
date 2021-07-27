@@ -3,10 +3,13 @@ package com.tfm.planitnow.activities;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -18,6 +21,7 @@ import com.tfm.planitnow.R;
 import com.tfm.planitnow.models.Plan;
 import com.tfm.planitnow.ui.home.HomeFragment;
 
+import java.io.IOException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Objects;
@@ -77,8 +81,8 @@ public class ViewPlanActivity extends AppCompatActivity {
 
     public void setImageUri(String stringUri) {
         Uri uri = Uri.parse(stringUri);
-        if(getApplicationContext().getContentResolver().getType(uri) != null);
-            //planImageView.setImageURI(uri);
+        if(getApplicationContext().getContentResolver().getType(uri) != null)
+            planImageView.setImageURI(uri);
         }
 
     @Override

@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.media.Image;
 import android.net.Uri;
 import android.os.ParcelFileDescriptor;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -86,11 +87,10 @@ public class PlanHolder extends RecyclerView.ViewHolder {
 
     public void setImageUri(String stringUri) {
         Uri uri = Uri.parse(stringUri);
-        if(planItemView.getContext().getContentResolver().getType(uri) != null);
-         //   planImage.setImageURI(uri);
-            }
-
-
+        if (planItemView.getContext().getContentResolver().getType(uri) != null)
+            planImage.setImageURI(uri);
+    }
+            
     public void bindData(Plan plan){
         this.plan = plan;
         this.setPlanTitle(plan.getTitle());

@@ -111,7 +111,7 @@ public class CreatePlanActivity extends AppCompatActivity {
     public void openGalleryForResult(View view){
         Intent intent = new Intent();
         intent.setType("image/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
+        intent.setAction(Intent.ACTION_OPEN_DOCUMENT);
         galleryActivityResultLauncher.launch(intent);
     }
 
