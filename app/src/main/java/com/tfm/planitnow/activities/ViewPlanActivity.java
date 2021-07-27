@@ -73,7 +73,7 @@ public class ViewPlanActivity extends AppCompatActivity {
         planDescription.setText("" + plan.getDescription());
         Calendar c = Calendar.getInstance(); //TODO sacar utils de aqui
         c.setTime(plan.getInit_date());
-        planDate.setText("" + c.get(Calendar.DAY_OF_MONTH) + "/" + c.get(Calendar.MONTH));
+        planDate.setText("" + c.get(Calendar.DAY_OF_MONTH) + "/" + (c.get(Calendar.MONTH)+1));
         planSchedule.setText("De " + plan.getInit_hour() + " a " + plan.getEnd_hour());
         planLocation.setText("" + plan.getLocation());
         if(plan.getMain_image_uri() != null) setImageUri(plan.getMain_image_uri());

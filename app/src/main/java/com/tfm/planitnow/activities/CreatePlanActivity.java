@@ -6,18 +6,11 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.Context;
-import android.content.ContextWrapper;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -27,19 +20,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.tfm.planitnow.R;
-import com.tfm.planitnow.adapters.PlanAdapter;
 import com.tfm.planitnow.database.PlanItNowDatabase;
 import com.tfm.planitnow.models.Plan;
 import com.tfm.planitnow.ui.home.HomeFragment;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.net.URI;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.GregorianCalendar;
-import java.util.List;
 import java.util.Objects;
 import java.util.Random;
 
@@ -47,11 +33,11 @@ public class CreatePlanActivity extends AppCompatActivity {
 
     private static final int SELECT_IMAGE = 200;
 
-    private TextView planTitle, planDescription, planLocation,planInitHour, planEndHour;
+    private TextView planTitle, planDescription, planLocation, planInitHour, planEndHour;
     private CalendarView planCalendar;
     private ImageView imageButton;
     private Calendar selectedInitCalendar;
-    private Uri image_uri;
+    private Uri imageUri;
 
     private Button createPlanButton;
     private ActivityResultLauncher<Intent> galleryActivityResultLauncher;
@@ -88,8 +74,8 @@ public class CreatePlanActivity extends AppCompatActivity {
                         if (result.getResultCode() == Activity.RESULT_OK) {
                             // There are no request codes
                             Intent data = result.getData();
-                            image_uri = data.getData();
-                            imageButton.setImageURI(image_uri);
+                            imageUri = data.getData();
+                            imageButton.setImageURI(imageUri);
                         }
                     }
                 });
@@ -101,11 +87,16 @@ public class CreatePlanActivity extends AppCompatActivity {
         p.setInit_date(selectedInitCalendar.getTime());
         p.setInit_hour(Integer.parseInt(planInitHour.getText().toString()));
         p.setEnd_hour(Integer.parseInt(planEndHour.getText().toString()));
-        if(image_uri != null) p.setMain_image_uri(image_uri.toString());
-        Toast.makeText(view.getContext(), p.toString() , Toast.LENGTH_LONG).show();
-        PlanItNowDatabase.getInstance(getApplicationContext()).planDao().insertAll(p);
-        HomeFragment.addPlan(p);
-        finish();
+        if(imageUri != null) p.setMain_image_uri(imageUri.toString());
+        if(p.isValid()) {
+            Toast.makeText(view.getContext(), p.toString(), Toast.LENGTH_LONG).show();
+            PlanItNowDatabase.getInstance(getApplicationContext()).planDao().insertAll(p);
+            HomeFragment.addPlan(p);
+            finish();
+        } else {
+            Toast.makeText(view.getContext(), "El plan no es valido. Hora entre 00 y 24 o fecha anterior a hoy.", Toast.LENGTH_LONG).show();
+        }
+
     }
 
     public void openGalleryForResult(View view){

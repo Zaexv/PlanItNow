@@ -78,7 +78,7 @@ public class PlanHolder extends RecyclerView.ViewHolder {
     public void setPlanDate(Date date) {
         Calendar c = Calendar.getInstance();
         c.setTime(date);
-        planDate.setText(c.get(Calendar.DAY_OF_MONTH) + "/" + c.get(Calendar.MONTH));
+        planDate.setText(c.get(Calendar.DAY_OF_MONTH) + "/" + (c.get(Calendar.MONTH)+1));
     }
 
     public void setPlanHours(int initHour, int endHour){
@@ -92,6 +92,10 @@ public class PlanHolder extends RecyclerView.ViewHolder {
     }
             
     public void bindData(Plan plan){
+        Calendar c = Calendar.getInstance();
+        c.setTime(new Date());
+        c.add(Calendar.DAY_OF_MONTH, -1);
+        if(plan.getInit_date().compareTo(c.getTime()) == -1) planItemView.setBackgroundColor(R.color.black);
         this.plan = plan;
         this.setPlanTitle(plan.getTitle());
         this.setPlanDescription(plan.getDescription());
@@ -100,8 +104,6 @@ public class PlanHolder extends RecyclerView.ViewHolder {
         this.setPlanHours(plan.getInit_hour(),plan.getEnd_hour());
         if(plan.getMain_image_uri() != null) this.setImageUri(plan.getMain_image_uri());
     }
-
-
 }
 
 

@@ -214,6 +214,27 @@ public class Plan implements Serializable {
 	/* Functions */ 
 	
 
+
+	public boolean isValid(){
+		boolean initHourValid = (init_hour >= 00) && (init_hour <=  24);
+		boolean endHourValid = (end_hour >= 00) && (end_hour <= 24);
+		boolean hourValid = end_hour > init_hour;
+		Calendar c = Calendar.getInstance();
+		c.setTime(new Date());
+		c.add(Calendar.DAY_OF_MONTH, -1);
+		boolean initDateValid = init_date.compareTo(c.getTime()) == 1;
+		boolean titleValid = title != null;
+		boolean descriptionValid = description != null;
+		boolean locationValid = location != null;
+		return initHourValid &&
+				endHourValid &&
+				hourValid &&
+				initDateValid &&
+				titleValid &&
+				descriptionValid &&
+				locationValid;
+	}
+
 	@NotNull
 	@Override
 	public String toString() {
