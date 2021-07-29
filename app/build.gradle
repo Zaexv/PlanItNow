@@ -1,5 +1,6 @@
 plugins {
     id 'com.android.application'
+    id("com.apollographql.apollo").version("2.5.9")
 }
 
 android {
@@ -34,6 +35,10 @@ dependencies {
 
     implementation "androidx.room:room-runtime:$room_version"
     annotationProcessor "androidx.room:room-compiler:$room_version"
+
+    // apollo - Has the version for java
+    implementation("com.apollographql.apollo:apollo-runtime:2.5.9")
+
 
     // optional - RxJava2 support for Room
     implementation "androidx.room:room-rxjava2:$room_version"
