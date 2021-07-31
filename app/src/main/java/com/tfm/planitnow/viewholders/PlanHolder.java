@@ -95,7 +95,7 @@ public class PlanHolder extends RecyclerView.ViewHolder {
         Calendar c = Calendar.getInstance();
         c.setTime(new Date());
         c.add(Calendar.DAY_OF_MONTH, -1);
-        if(plan.getInit_date().compareTo(c.getTime()) == -1) planItemView.setBackgroundColor(R.color.black);
+        //if(plan.getInit_date().compareTo(c.getTime()) == -1) planItemView.setBackgroundColor(R.color.black); TODO FIX
         this.plan = plan;
         this.setPlanTitle(plan.getTitle());
         this.setPlanDescription(plan.getDescription());
