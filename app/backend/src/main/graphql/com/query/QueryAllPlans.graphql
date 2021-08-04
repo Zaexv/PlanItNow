@@ -1,0 +1,5 @@
+query AllPlans{
+  allPlans{
+    id,title,description,initDate,initHour,endHour
+  }
+}
