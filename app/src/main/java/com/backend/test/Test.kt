@@ -6,9 +6,9 @@ import com.apollographql.apollo.ApolloClient
 import com.apollographql.apollo.api.Response
 import com.apollographql.apollo.coroutines.await
 import com.apollographql.apollo.exception.ApolloException
+import com.tfm.planitnow.models.Plan
 
 class Test {
-
     companion object {
         @JvmStatic fun main(args: Array<String>) {
             connectionTest();
@@ -26,18 +26,16 @@ class Test {
                 ApolloCall.Callback<AllPlansQuery.Data>(){
                 override fun onResponse(response: Response<AllPlansQuery.Data>) {
 
-                    for(plan in response.data?.allPlans()!!){
+                    for(plan in response.data?.allPlans!!){
                         println(plan.toString());
                     }
-                    println(response.data?.allPlans()!!);
+                    println(response.data?.allPlans!!);
                 }
                 override fun onFailure(e: ApolloException){
                     println("Failed!");
                 }
             }
             );
-
-
         }
 
 
@@ -47,7 +45,7 @@ class Test {
                 apolloClient.query(AllPlansQuery()).await();
 
 
-            for(plan in res2.data?.allPlans()!!){
+            for(plan in res2.data?.allPlans!!){
                 println(plan.toString());
             }
         }

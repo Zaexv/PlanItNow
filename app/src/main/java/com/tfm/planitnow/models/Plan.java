@@ -58,8 +58,7 @@ public class Plan implements Serializable {
 	private Set<Participation> joined_users; 
 
 
-	/* Constructor */ 
-	
+	/* Constructor */
 	public Plan(int id, String title, String description) {
 		this.id = id;
 		this.title = title;
@@ -97,7 +96,7 @@ public class Plan implements Serializable {
 	
 	}
 
-	
+
 	/* Getters and Setters */
 
 	public int getId() { return id; }
