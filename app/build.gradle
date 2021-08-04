@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id("com.apollographql.apollo").version("2.5.9")
+    id 'kotlin-android'
 }
 
 android {
@@ -31,6 +32,9 @@ android {
 
 dependencies {
 
+    //Kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+
     def room_version = "2.3.0"
 
     implementation "androidx.room:room-runtime:$room_version"
@@ -38,6 +42,7 @@ dependencies {
 
     // apollo - Has the version for java
     implementation("com.apollographql.apollo:apollo-runtime:2.5.9")
+    implementation("com.apollographql.apollo:apollo-coroutines-support:2.5.9")
 
 
     // optional - RxJava2 support for Room
