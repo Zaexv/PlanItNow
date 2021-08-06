@@ -6,6 +6,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.backend.apollo.ApolloHandler;
 import com.tfm.planitnow.database.PlanItNowDatabase;
 import com.tfm.planitnow.models.Plan;
 import com.tfm.planitnow.utils.PlanComparator;
@@ -13,6 +14,7 @@ import com.tfm.planitnow.utils.PlanComparator;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
 
 public class HomeViewModel extends ViewModel {
 
@@ -40,4 +42,16 @@ public class HomeViewModel extends ViewModel {
     public LiveData<String> getText() {
         return mText;
     }
+
+    protected void loadPlansFromDB(Context context) {
+        List<Plan> allPlans = PlanItNowDatabase.getInstance(context).planDao().getAll();
+        this.setPlanList((allPlans != null)? allPlans : new ArrayList<Plan>());
+    }
+
+    public void loadPlansFromGraphQL(){
+        ApolloHandler.Companion.getInstance();
+        List<Plan> plans = ApolloHandler.Companion.getAllPlans();
+        setPlanList(plans);
+    }
+
 }

@@ -48,7 +48,9 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        loadPlansFromDB();
+        //homeViewModel.loadPlansFromDB(this.getContext());
+        homeViewModel.loadPlansFromGraphQL();
+
         initializePlanAdapter(root);
         return root;
     }
@@ -72,9 +74,6 @@ public class HomeFragment extends Fragment {
         planAdapter.notifyDataSetChanged();
     }
 
-    private void loadPlansFromDB() {
-        List<Plan> allPlans = PlanItNowDatabase.getInstance(this.getContext()).planDao().getAll();
-        homeViewModel.setPlanList((allPlans != null)? allPlans : new ArrayList<Plan>());
-    }
+
 
 }

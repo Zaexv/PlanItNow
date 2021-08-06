@@ -40,8 +40,6 @@ public class PlanHolder extends RecyclerView.ViewHolder {
         super(planItemView);
         this.planItemView = planItemView;
 
-
-        //TODO Refactor
         planItemView.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -92,7 +90,6 @@ public class PlanHolder extends RecyclerView.ViewHolder {
     }
             
     public void bindData(Plan plan){
-        //if(plan.getInit_date().compareTo(c.getTime()) == -1) planItemView.setBackgroundColor(R.color.black); TODO FIX
         this.plan = plan;
         this.setPlanTitle(plan.getTitle());
         this.setPlanDescription(plan.getDescription());

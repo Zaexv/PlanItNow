@@ -6,15 +6,22 @@ import com.apollographql.apollo.ApolloClient
 import com.apollographql.apollo.api.Response
 import com.apollographql.apollo.coroutines.await
 import com.apollographql.apollo.exception.ApolloException
+import com.backend.apollo.ApolloHandler
 import com.tfm.planitnow.models.Plan
 
 class Test {
+
     companion object {
         @JvmStatic fun main(args: Array<String>) {
-            connectionTest();
+
+            val apolloClient: ApolloClient = ApolloClient.builder()
+                .serverUrl("http://localhost:8000/graphql")
+                .build();
+
+
         }
 
-        private fun connectionTest(){
+        public fun connectionTest(){
 
             var res = "";
 
@@ -25,7 +32,6 @@ class Test {
             val response = apolloClient.query(AllPlansQuery()).enqueue(object:
                 ApolloCall.Callback<AllPlansQuery.Data>(){
                 override fun onResponse(response: Response<AllPlansQuery.Data>) {
-
                     for(plan in response.data?.allPlans!!){
                         println(plan.toString());
                     }

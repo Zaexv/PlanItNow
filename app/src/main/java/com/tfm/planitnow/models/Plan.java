@@ -5,6 +5,7 @@ import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
+
 import org.jetbrains.annotations.NotNull;
 
 import java.io.Serializable;
@@ -241,5 +242,4 @@ public class Plan implements Serializable {
 				+ init_hour + ", end_hour=" + end_hour + ", init_date=" + init_date + ", end_date=" + end_date + "]";
 	}
 
-	
 }
